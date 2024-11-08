@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { max as d3Max, scaleBand, scaleLinear } from "d3";
+import { max, scaleBand, scaleLinear } from "d3";
 import { XAxis, YAxis } from "./axes";
 
 export function BarChart(props) {
