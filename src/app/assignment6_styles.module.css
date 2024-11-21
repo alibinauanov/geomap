@@ -1,3 +1,7 @@
+.mainView {
+    display: flex;
+}
+
 .h1Style {
     background-color: #2a5599;
     color: white;
@@ -9,5 +13,4 @@
     border-style: solid;
     border-color: black;
 }
-
 

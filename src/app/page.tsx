@@ -1,9 +1,9 @@
-import Assignment5_student from './assignment5_alibinauanov';
+import Assignment6_student from './assignment6_student';
 
 export default function Home() {
     return (
         <div>
-            <Assignment5_student />
+            <Assignment6_student />
         </div>
     );
 }

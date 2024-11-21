@@ -46,15 +46,46 @@ function groupByAirport(data) {
         }
         currentSource.Count += 1
         result[d.SourceAirportID] = currentSource
-
         return result
     }, {})
 
-    //We map the keys to the actual ariorts, this is an way to transform the object we got in the previous step into a list.
+    //We map the keys to the actual airports, this is an way to transform the object we got in the previous step into a list.
     result = Object.keys(result).map(key => result[key])
     return result
 }
 
+function groupByCity(data) {
+    //TODO:
+    //1.Complete this function by refering to the groupByAirport and groupByAirline;
+    //  it returns an array of objects; the Count of each object represents the number
+    //  of routes related to the city.
+    //Hint: you need to use d.DestCity and d.SourceCity;
+    let result = data.reduce((result, d) => {
+        // Handle destination city
+        let currentDestCity = result[d.DestCity] || {
+            "City": d.DestCity,
+            "Count": 0
+        };
+        currentDestCity.Count += 1;
+        result[d.DestCity] = currentDestCity;
+
+        // Handle source city
+        let currentSourceCity = result[d.SourceCity] || {
+            "City": d.SourceCity,
+            "Count": 0
+        };
+        currentSourceCity.Count += 1;
+        result[d.SourceCity] = currentSourceCity;
+
+        return result;
+    }, {});
+
+    // Convert the result object into an array
+    result = Object.keys(result).map(key => result[key]);
+    result = result.sort((a, b) => b.Count - a.Count);
+    return result;
+}
+
 export {
-    groupByAirline, groupByAirport
+    groupByAirline, groupByAirport, groupByCity
 }
