@@ -4,7 +4,7 @@ import { forceSimulation, forceX, forceY, forceCollide, scaleLinear, min, max } 
 
 
 function AirportBubble(props){
-    const {width, height, countries, routes, selectedAirline} = props;
+    const {width, height, routes, selectedAirline} = props;
     console.log(groupByCity(routes));
     if(selectedAirline){
         // Filter routes based on the selected airline
@@ -13,7 +13,6 @@ function AirportBubble(props){
         cities = cities.sort((a, b) => a.Count - b.Count);
 
         console.log("Cities for the selected airline:", cities);
-        let radius;
 
         // Create a linear scale for bubble radius based on city route counts
         const radiusScale = scaleLinear()
